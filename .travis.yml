@@ -5,7 +5,7 @@ python:
 install:
   - pip install -r test/travis/test-requirements.txt
 
-script: nosetests test/unit/
+script: nosetests test/unittests/
 
 branches:
   only:

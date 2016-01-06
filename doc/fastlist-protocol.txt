@@ -1,0 +1,30 @@
+The fastlisting UDP protocol:
+Each command is in one UDP packet
+a command consists of several fields:
+
+<name> <a-content> <txt-content> <action> <ttl> <expiration>
+
+<name>: The name of the record to be listed (eg. the  domain name, reversed IP addr. etc). This field is required in all cases.
+<a-content>: IPv4 address. If not set, a server default will be used.
+<txt-content>: TXT record content. If not set, a server default may be used.
+<action>: the letter 'a' to add/replace an entry, or the letter 'd' to remove an entry from the fastlist zone. Default is 'a'. If 'd' is set, all other fields except <name> are ignored.
+<ttl>: TTL value in seconds of the DNS record. If not set, a server default will be used.
+<expiration>:  Time in seconds until the entry should expire from the server zone. If not set, a server default may be used. 0 for a permanent listing.
+
+Fields are separated by a tabulator character. The client must send at least the <name> field. 
+The client can send one or more fields to the server. A field can be omitted by two consecutive tabluator charaters. 
+
+Examples:
+
+just list 'bla.com':
+bla.com
+
+list 'bla.com' with A-record 127.0.0.3
+bla.com\t127.0.0.3
+
+delete 'bla.com'
+bla.com\t\t\td
+
+list 'bla.com' with txt record 'hello world' and no expiration
+bla.com\t\thello world\t\t0
+

@@ -9,3 +9,8 @@ usage and zonefile format are similar to rbldnsd
 Install
 -------
 Dependencies: dnslib
+
+
+.. image:: https://travis-ci.org/gryphius/rbldnspy.svg?branch=master
+    :target: https://travis-ci.org/gryphius/rbldnspy
+    :alt: Build status

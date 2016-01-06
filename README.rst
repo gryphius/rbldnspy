@@ -8,7 +8,8 @@ usage and zonefile format are similar to rbldnsd
 
 Install
 -------
-Dependencies: dnslib
+Dependencies: dnslib , dateutils
+
 
 
 .. image:: https://travis-ci.org/gryphius/rbldnspy.svg?branch=master
